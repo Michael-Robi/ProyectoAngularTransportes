@@ -1,0 +1,27 @@
+<div class="col-md-4 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <input type="text" name="title" [(ngModel)]="producto.tipoDeProducto" placeholder="Title" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <textarea name="description" [(ngModel)]="producto.cantidadDelProducto" rows="2" placeholder="Description" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-success btn-block" (click)="edit ? updateLogisticaTerrestre() : saveLogisticaTerrestre()">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <h3>{{producto.id}}. {{producto.tipoDeProducto == '' ? 'tipo de producto' : producto.tipoDeProducto}}</h3>
+    <p>{{producto.cantidadDelProducto == '' ? 'cantidad del Producto' : producto.cantidadDelProducto}}</p>
+    <p>{{producto.fechaDeRegistro | date: 'yyyy-MM-dd'}}</p>
+    <p>{{producto.fechaDeEntrega | date: 'yyyy-MM-dd'}}</p>
+  </div>
+</div>
+

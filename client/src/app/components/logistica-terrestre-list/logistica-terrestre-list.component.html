@@ -1,0 +1,18 @@
+<div class="col-md-3" *ngFor="let obj of logisticaTerrestre">
+  <div class="card text-center">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      {{obj.tipoDeProducto}}
+      <button class="btn btn-danger" (click)="deleteLogisticaMarina(obj.id)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <div class="card-body">
+      <p style="height: 30px;">{{obj.cantidadDelProducto}}</p>
+      <p>fechaDeRegistro {{obj.fechaDeRegistro | date: 'yyyy-MM-dd'}}</p>
+      <p>fechaDeEntrega {{obj.fechaDeEntrega | date: 'yyyy-MM-dd'}}</p>
+      <a [routerLink]="['logisticaterrestre/edit', obj.id]" class="btn btn-info btn-block">
+        EDITAR LOGISTICA
+      </a>
+    </div>
+  </div>
+</div>
