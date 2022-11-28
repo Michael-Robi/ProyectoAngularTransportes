@@ -8,6 +8,6 @@ export interface LogisticaTerrestre {
     fechaDeEntrega?: Date,
     bodegaDeEntrega?: string,
     precioDeEnvio?: string,
-    placaDelVehículo?: string,
+    placaDelVehiculo?: string,
     numeroDeGuia?: string,
 };

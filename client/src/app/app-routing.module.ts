@@ -13,7 +13,7 @@ import { LogisticaTerrestreFormComponent } from './components/logistica-terrestr
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/games',
+    redirectTo: '/logisticamarina',
     pathMatch: 'full'
   },
   {

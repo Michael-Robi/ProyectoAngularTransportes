@@ -16,7 +16,11 @@ export class LogisticaTerrestreFormComponent implements OnInit {
     tipoDeProducto: '',
     cantidadDelProducto: '',
     fechaDeRegistro: new Date(),
-    fechaDeEntrega: new Date()
+    fechaDeEntrega: new Date(),
+    bodegaDeEntrega: '',
+    precioDeEnvio: '',
+    placaDelVehiculo: '',
+    numeroDeGuia: '',
   };
 
   edit: boolean = false;
@@ -38,8 +42,11 @@ export class LogisticaTerrestreFormComponent implements OnInit {
     }
   }
 
-  saveLogisticaMarina() {
-    delete this.producto.fechaDeRegistro;
+  saveLogisticaTerrestre() {
+    // delete this.producto.fechaDeRegistro;
+    // delete this.producto.fechaDeEntrega;
+    this.producto.fechaDeRegistro=this.producto.fechaDeRegistro.slice(0, 10);
+    this.producto.fechaDeEntrega=this.producto.fechaDeEntrega.slice(0, 10);
     delete this.producto.id;
     this.objService.saveLogisticaTerrestre(this.producto)
       .subscribe(
@@ -51,8 +58,11 @@ export class LogisticaTerrestreFormComponent implements OnInit {
       )
   }
 
-  updateLogisticaMarina() {
-    delete this.producto.fechaDeRegistro;
+  updateLogisticaTerrestre() {
+    // delete this.producto.fechaDeRegistro;
+    // delete this.producto.fechaDeEntrega;
+    this.producto.fechaDeRegistro=this.producto.fechaDeRegistro.slice(0, 10);
+    this.producto.fechaDeEntrega=this.producto.fechaDeEntrega.slice(0, 10);
     this.objService.updateLogisticaTerrestre(this.producto.id, this.producto)
       .subscribe(
         res => { 

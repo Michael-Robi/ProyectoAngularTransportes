@@ -18,10 +18,10 @@ export class LogisticaTerrestreListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getGames();
+    this.getListaProductos();
   }
 
-  getGames() {
+  getListaProductos() {
     this.objService.getLogisticasTerrestre()
       .subscribe(
         res => {
@@ -31,12 +31,12 @@ export class LogisticaTerrestreListComponent implements OnInit {
       );
   }
 
-  deleteGame(id: string) {
+  deleteProducto(id: string) {
     this.objService.deleteLogisticaTerrestre(id)
       .subscribe(
         res => {
           console.log(res);
-          this.getGames();
+          this.getListaProductos();
         },
         err => console.log(err)
       )

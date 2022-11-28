@@ -15,8 +15,12 @@ export class LogisticaMarinaFormComponent implements OnInit {
     id: 0,
     tipoDeProducto: '',
     cantidadDelProducto: '',
-    fechaDeRegistro: new Date(),
-    fechaDeEntrega: new Date()
+    fechaDeRegistro: '',
+    fechaDeEntrega: '',
+    puertoDeEntrega: '',
+    precioDeEnvio: '',
+    placaDelBarco: '',
+    numeroDeGuia: '',
   };
 
   edit: boolean = false;
@@ -39,7 +43,8 @@ export class LogisticaMarinaFormComponent implements OnInit {
   }
 
   saveLogisticaMarina() {
-    delete this.producto.fechaDeRegistro;
+    this.producto.fechaDeRegistro=this.producto.fechaDeRegistro.slice(0, 10);
+    this.producto.fechaDeEntrega=this.producto.fechaDeEntrega.slice(0, 10);
     delete this.producto.id;
     this.objService.saveLogisticaMarina(this.producto)
       .subscribe(
@@ -52,7 +57,8 @@ export class LogisticaMarinaFormComponent implements OnInit {
   }
 
   updateLogisticaMarina() {
-    delete this.producto.fechaDeRegistro;
+    this.producto.fechaDeRegistro=this.producto.fechaDeRegistro.slice(0, 10);
+    this.producto.fechaDeEntrega=this.producto.fechaDeEntrega.slice(0, 10);
     this.objService.updateLogisticaMarina(this.producto.id, this.producto)
       .subscribe(
         res => { 

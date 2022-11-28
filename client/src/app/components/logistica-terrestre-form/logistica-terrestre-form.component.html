@@ -1,12 +1,34 @@
-<div class="col-md-4 offset-md-2">
+<div class="col-md-8 offset-md-2">
   <div class="card">
+    <div class="card card-body text-center">
+      <h3>{{producto.id}}. {{producto.tipoDeProducto == '' ? 'Logistica Terrestre' : producto.tipoDeProducto}}</h3>
+    </div>
     <div class="card-body">
       <form action="">
         <div class="form-group">
-          <input type="text" name="title" [(ngModel)]="producto.tipoDeProducto" placeholder="Title" class="form-control" autofocus>
+          <input type="text" name="tipoDeProducto" [(ngModel)]="producto.tipoDeProducto" placeholder="tipoDeProducto" class="form-control" autofocus>
         </div>
         <div class="form-group">
-          <textarea name="description" [(ngModel)]="producto.cantidadDelProducto" rows="2" placeholder="Description" class="form-control"></textarea>
+          <textarea name="cantidadDelProducto" [(ngModel)]="producto.cantidadDelProducto" rows="2" placeholder="cantidadDelProducto" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <!-- <input type="text" name="fechaDeRegistro1" [(ngModel)]="producto.fechaDeRegistro" placeholder="fechaDeRegistro1" class="form-control"> -->
+          <input type="date" name="fechaDeRegistro" placeholder="DD/MM/YYY" [(ngModel)]="producto.fechaDeRegistro" value="{{producto.fechaDeRegistro.slice(0, 10)}}"/>
+        </div>
+        <div class="form-group">
+          <input type="date" name="fechaDeEntrega" placeholder="DD/MM/YYY" [(ngModel)]="producto.fechaDeEntrega" value="{{producto.fechaDeEntrega.slice(0, 10)}}"/>
+        </div>
+        <div class="form-group">
+          <input type="text" name="bodegaDeEntrega" [(ngModel)]="producto.bodegaDeEntrega" placeholder="bodegaDeEntrega" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="precioDeEnvio" [(ngModel)]="producto.precioDeEnvio" placeholder="precioDeEnvio" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="placaDelVehiculo" [(ngModel)]="producto.placaDelVehiculo" placeholder="placaDelVehiculo" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="numeroDeGuia" [(ngModel)]="producto.numeroDeGuia" placeholder="numeroDeGuia" class="form-control">
         </div>
         <button class="btn btn-success btn-block" (click)="edit ? updateLogisticaTerrestre() : saveLogisticaTerrestre()">
           Guardar
@@ -15,13 +37,3 @@
     </div>
   </div>
 </div>
-
-<div class="col-md-4">
-  <div class="card card-body text-center">
-    <h3>{{producto.id}}. {{producto.tipoDeProducto == '' ? 'tipo de producto' : producto.tipoDeProducto}}</h3>
-    <p>{{producto.cantidadDelProducto == '' ? 'cantidad del Producto' : producto.cantidadDelProducto}}</p>
-    <p>{{producto.fechaDeRegistro | date: 'yyyy-MM-dd'}}</p>
-    <p>{{producto.fechaDeEntrega | date: 'yyyy-MM-dd'}}</p>
-  </div>
-</div>
-

@@ -18,10 +18,10 @@ export class LogisticaMarinaListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getGames();
+    this.getListaProductos();
   }
 
-  getGames() {
+  getListaProductos() {
     this.objService.getLogisticasMarina()
       .subscribe(
         res => {
@@ -31,12 +31,12 @@ export class LogisticaMarinaListComponent implements OnInit {
       );
   }
 
-  deleteGame(id: string) {
+  deleteProducto(id: string) {
     this.objService.deleteLogisticaMarina(id)
       .subscribe(
         res => {
           console.log(res);
-          this.getGames();
+          this.getListaProductos();
         },
         err => console.log(err)
       )
